@@ -1,0 +1,5 @@
+<div class="bar-graph">
+    <div *ngFor="let bar of bars" class="bar" [style.height]="bar.barHeight" [attr.data-price]="bar.price">
+      <div class="label">{{ bar.title }}</div>
+    </div>
+  </div>

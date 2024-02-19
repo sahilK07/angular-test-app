@@ -1,0 +1,35 @@
+<div class="filters-container">
+  <label>Filter by Price:</label>
+  <select (change)="applyFilters($event, 'price')" [(ngModel)]="selectedPriceSort">
+    <option selected disabled>please select</option>
+    <option value="asc">Asc</option>
+    <option value="desc">Desc</option>
+  </select>
+  <label>Filter by Rating:</label>
+  <select (change)="applyFilters($event, 'rating')" [(ngModel)]="selectedRatingSort">
+    <option selected disabled>please select</option>
+    <option value="asc">Asc</option>
+    <option value="desc">Desc</option>
+  </select>
+  <button class="btn" (click)="clearFilters()">Clear Filters</button>
+</div>
+<div class="product-container">
+  <div class="product-card" *ngFor="let product of productList">
+    <img [src]="product?.thumbnail" alt="{{ product.title }}" class="thumbnail" />
+    <div class="details">
+      <div class="font-size-24 bold">{{ product.title }}</div>
+      <p class="font-size-16">{{ product.description }}</p>
+      <p class="font-size-22 bold">${{ product.price }}</p>
+      <div class="rating">
+        Rating:
+        {{product.rating}}
+      </div>
+    </div>
+  <button class="buy-now-button" (click)="buyNow(product)">Buy Now</button>
+  </div>
+</div>
+
+<div>
+  <button (click)="onLoadMore()" class="btn">Load More</button>
+</div>
+<app-product-details *ngIf="isModalOpen" [ProductDetails]="selectedProduct"></app-product-details>

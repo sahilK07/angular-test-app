@@ -1,0 +1,23 @@
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>Order Summary</h2>
+        <button class="close-button" (click)="closeModal()">X</button>
+      </div>
+      <div class="modal-body">
+        <div class="discount-info">
+          <h3>Discount Calculation</h3>
+          <p>Discount: {{ ProductDetails?.discountPercentage }}%</p>
+          <p>Discount Amount: {{ discountAmount }}</p>
+        </div>
+        <div class="stock-info">
+          <h3>Stock Availability</h3>
+          <p>Available stock: {{ ProductDetails?.stock }}</p>
+        </div>
+        <div class="total-amount-info">
+          <h3>Total Payable Amount</h3>
+          <p>Total: {{ Totalpayableamount }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
